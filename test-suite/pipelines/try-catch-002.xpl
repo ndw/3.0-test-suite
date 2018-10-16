@@ -20,18 +20,10 @@
           </p:identity>
         </p:when>
         <p:when test="$error = 1">
-          <p:error code="cx:error">
-            <p:with-input port="source">
-              <p:empty/>
-            </p:with-input>
-          </p:error>
+          <p:error code="cx:error"/>
         </p:when>
         <p:otherwise>
-          <p:error code="cx:error2">
-            <p:with-input port="source">
-              <p:empty/>
-            </p:with-input>
-          </p:error>
+          <p:error code="cx:error2"/>
         </p:otherwise>
       </p:choose>
     </p:group>
