@@ -2,30 +2,21 @@
         xmlns:err="http://www.w3.org/ns/xproc-error"
         expected="pass">
    <t:info>
-      <t:title>p:http-request 123 (NW)</t:title>
+      <t:title>p:http-request 118 (AB)</t:title>
       <t:revision-history>
          <t:revision>
-            <t:date>2021-09-23</t:date>
+            <t:date>2021-09-24</t:date>
             <t:author>
                <t:name>Achim Berndzen</t:name>
             </t:author>
             <t:description xmlns="http://www.w3.org/1999/xhtml">
-               <p>Changed test so that returned headers don't make the test fail.</p>
-            </t:description>
-         </t:revision>
-         <t:revision>
-            <t:date>2021-09-09</t:date>
-            <t:author>
-               <t:name>Norman Walsh</t:name>
-            </t:author>
-            <t:description xmlns="http://www.w3.org/1999/xhtml">
-               <p>Test send-body-anyway for p:http-request.</p>
+               <p>Test send-body-anyway for p:http-request method GET.</p>
             </t:description>
          </t:revision>
       </t:revision-history>
    </t:info>
    <t:description xmlns="http://www.w3.org/1999/xhtml">
-      <p>If you don’t specify send-body-anyway=true, the body isn’t sent.</p>
+      <p>If you don’t specify send-body-anyway=true, the body isn’t sent. (method=GET)</p>
    </t:description>
    <t:pipeline>
      <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
@@ -35,7 +26,8 @@
        <p:output port="result"/>
 
        <p:http-request href="http://localhost:8246/service/check-singlepart"
-                       method="delete">
+          parameters="map{'send-body-anyway' : false()}"
+                       method="get">
          <p:with-input><doc1/></p:with-input>
        </p:http-request>
      </p:declare-step>
